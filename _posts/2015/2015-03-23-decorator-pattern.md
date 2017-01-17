@@ -39,51 +39,51 @@ So here's an approach to solve the mentioned problems. It's not tested, though; 
 * The *Photo Editor* app makes changes to a `Photo` object
 
     ``` python
-    class Photo(object):
-        def __init__(self, bitmap):
-            self._bitmap = bitmap
+class Photo(object):
+    def __init__(self, bitmap):
+        self._bitmap = bitmap
 
-        def get_bitmap(self):
-            return self._bitmap
+    def get_bitmap(self):
+        return self._bitmap
     ```
 
 * And we have the `PhotoEditor` class that controls the changes
 
     ``` python
-    class PhotoEditor(object):
-        def __init__(self):
-            self._filters = []
+class PhotoEditor(object):
+    def __init__(self):
+        self._filters = []
 
-        def add_filters(self, *filters):
-            self._filters.extend(filters)
+    def add_filters(self, *filters):
+        self._filters.extend(filters)
 
-        def apply(self, photo):
-            for filter in self._filters:
-                filter.apply(photo)
+    def apply(self, photo):
+        for filter in self._filters:
+            filter.apply(photo)
     ```
 
 * Let's call the changes that can be made in a *Photo Editor* app `PhotoFilter`
 
     ``` python
-    class PhotoFilter(object):
-        def __init__(self):
-            # To be implemented
-            pass
-        def apply(self, photo):
-            # To be implemented
-            pass
+class PhotoFilter(object):
+    def __init__(self):
+        # To be implemented
+        pass
+    def apply(self, photo):
+        # To be implemented
+        pass
     ```
 
 * Extend `PhotoFilter`, and implement the logic of each filter
 * Example usage:
 
     ``` python
-    photo_editor = PhotoEditor()
-    photo_editor.add_filters(FramePhotoFilter("simple_frame"),
-                              TextPhotoFilter("some text", text_coordinates),
-                              StickerPhotoFilter(sticker_id, sticker_coordinates),
-                              EmbossEffectPhotoFilter(emboss_level))
-    photo_editor.apply(photo)
+photo_editor = PhotoEditor()
+photo_editor.add_filters(FramePhotoFilter("simple_frame"),
+        TextPhotoFilter("some text", text_coordinates),
+        StickerPhotoFilter(sticker_id, sticker_coordinates),
+        EmbossEffectPhotoFilter(emboss_level))
+photo_editor.apply(photo)
     ```
 
 ### The Data Exporter
@@ -91,64 +91,64 @@ So here's an approach to solve the mentioned problems. It's not tested, though; 
 * Firstly, it needs something representing the data
 
     ``` python
-    class Document(object):
-        def __init__(self, data):
-            self._data = data
-            self._format = "json"
+class Document(object):
+    def __init__(self, data):
+        self._data = data
+        self._format = "json"
 
-        def get_data(self):
-            return self._data
+    def get_data(self):
+        return self._data
 
-        def set_data(self, data):
-            self._data = data
+    def set_data(self, data):
+        self._data = data
 
-        def get_format(self):
-            return self._format
+    def get_format(self):
+        return self._format
 
-        def set_format(self, format):
-            if format not in ["csv", "json"]
-                raise "Invalid format. Format must be either csv or json"
-            self._format = format
+    def set_format(self, format):
+        if format not in ["csv", "json"]
+            raise "Invalid format. Format must be either csv or json"
+        self._format = format
     ```
 
 * Surely, it needs a `DataExporter` class
 
     ``` python
-    class DataExporter(object):
-        def __init__(self)
-            self._formatters = []
+class DataExporter(object):
+    def __init__(self)
+        self._formatters = []
 
-        def add_formatters(self, *formatters):
-            self._formatters.extend(formatters)
+    def add_formatters(self, *formatters):
+        self._formatters.extend(formatters)
 
-        def export(self, document, filename):
-            for formatter in self._formatters:
-                formatter.apply(document)
-            # To be implemented: export the document
+    def export(self, document, filename):
+        for formatter in self._formatters:
+            formatter.apply(document)
+        # To be implemented: export the document
     ```
 
 * And the `DataFormatter` class
 
     ``` python
-    class DataFormatter(object):
-        def __init__(self):
-            # To be implemented
-            pass
+class DataFormatter(object):
+    def __init__(self):
+        # To be implemented
+        pass
 
-        def apply(self, document):
-            # To be implemented
-            pass
+    def apply(self, document):
+        # To be implemented
+        pass
     ```
 
 * Extend `DataFormatter` and implement the logic
 * Usage example:
-*
+
     ``` python
-    data_exporter = DataExporter()
-    data_exporter.add_formatters(ExportFormatDataFormatter("json"),
-                                  SortDataFormatter("created_at", "ascending"),
-                                  FilterDataFormatter(lambda data : data.created_at > a_month_ago))
-    data_exporter.export(document, "export.json")
+data_exporter = DataExporter()
+data_exporter.add_formatters(ExportFormatDataFormatter("json"),
+        SortDataFormatter("created_at", "ascending"),
+        FilterDataFormatter(lambda data : data.created_at > a_month_ago))
+data_exporter.export(document, "export.json")
     ```
 
 ### Problems?
@@ -177,7 +177,7 @@ In software design, there's a **Decorator pattern**. The decorator design patter
 
 I am lazy to write multiple examples, so I'll just go with the Photo Editor app example
 
-``` python
+    ``` python
 class PhotoDecorator(object):
     def draw(self):
         pass
@@ -202,17 +202,17 @@ class AddFrameDecorator(PhotoDecorator):
         # To be implemented
 
 # Similarly, implement other filters...
-```
+    ```
 
 Example code usage:
 
-``` python
+    ``` python
 photo = Photo(bitmap)
 photo = AddTextDecorator(photo, text, coordinator)
 photo = EmbossEffectPhotoFilter(photo)
 photo = AddFrameDecorator(photo)
 photo.draw()
-```
+    ```
 
 ## Analysis
 
@@ -220,7 +220,7 @@ The **Decorator Design Pattern's** solution looks much neater than the one using
 
 Actually, using Python in this example is a bit lame, since there isn't a need in using inheritance at all.
 
-``` python
+    ``` python
 class Photo(object):
     def __init__(self, bitmap):
         self._bitmap = bitmap
@@ -241,7 +241,7 @@ class AddFrameDecorator(object):
         # To be implemented
 
 # Similarly, implement other filters...
-```
+    ```
 
 Python is a duck-typing language, so as long as the `self._photo` object has the `draw()` method, it gets called.
 
@@ -255,29 +255,29 @@ A Python decorator is _a specific change to the Python syntax_ that allows us to
 
 ## Syntax
 
-```python
+    ``` python
 @decorator(kwargs**, args*)
 def decorated_function(kwargs**, args*):
     # TODO: To be implemented
     pass
-```
+    ```
 
 The python decorator syntax alter the behaviour of the function, then bind the function's name to the new function's behaviour.
 
 The above code is equivalent to:
 
-```python
+    ``` python
 def decorated_function(kwargs**, args*):
     # TODO: To be implemented
     pass
 decorated_function = decorator(decorated_function)
-```
+    ```
 
 ## Writing a Python decorator
 
 A Python decorator is simply a function accepting a function or method as an argument, then returns another function or method with modified behavior. A typical Python decorator can  be implemented as followed:
 
-``` python
+    ``` python
 def decorator(func):
     def func_wrapper(**kwargs, *args):
         # Do something before calling `func`
@@ -287,7 +287,7 @@ def decorator(func):
         # We may as well alter the returning value of `func`
         return result
     return func_wrapper
-```
+    ```
 
 ## Example
 
@@ -298,7 +298,8 @@ Implement a solution that allowing drawing three types of shapes:
 * A rectangle with red border
 
 **Expected result**
-```
+
+    ```
 Circle with normal border
 Shape: Circle
 
@@ -309,11 +310,11 @@ Border Color: Red
 Rectangle of red border
 Shape: Rectangle
 Border Color: Red
-```
+    ```
 
 **Solution**
 
-``` python
+    ``` python
 def draw_red_shape(draw):
     def wrapper():
         draw()
@@ -337,4 +338,4 @@ if __name__ == '__main__':
 
     print "Rectangle of red border"
     draw_red_shape(draw_rectangle)()
-```
+    ```

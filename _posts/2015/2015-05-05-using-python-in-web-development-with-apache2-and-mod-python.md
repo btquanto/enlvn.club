@@ -12,20 +12,24 @@ tags: ["python", "apache2", "mod_python"]
 # Installing necessary tools and libraries
 
 1. Installing: `apache2` and `libapache2-mod-python`
+
     ```
-    sudo apt-get install apache2 libapache2-mod-python -y
+sudo apt-get install apache2 libapache2-mod-python -y
     ```
+
 2. Check installation complete by going to `http://localhost/`
 3. Check if mod python has been enabled by checking the existent of `/etc/apache2/mods-enabled/python.load`
 4. If the file in step 3 does not exist, add the following line to `/etc/apache2/apache2.conf`
+
     ```
-    LoadModule python_module /usr/lib/apache2/modules/mod_python.so
+LoadModule python_module /usr/lib/apache2/modules/mod_python.so
     ```
 
 # Adding test script
 
 Add `index.py` to a folder (Let's say `/var/www/html/`) with the following content
-```python
+
+``` python
 from mod_python import apache
 
 def handler(request):
@@ -37,7 +41,8 @@ def handler(request):
 # Adding a server config
 
 Add a file `/etc/apache2/sites-enabled/server.conf` or modify the default `/etc/apache2/sites-enabled/000-default.conf` with the following content
-```apache
+
+``` apache
 <VirtualHost *:80>
     DocumentRoot /var/www/html
 
@@ -48,7 +53,9 @@ Add a file `/etc/apache2/sites-enabled/server.conf` or modify the default `/etc/
     </Directory>
 </VirtualHost>
 ```
+
 Restart apache server
+
 ```
 sudo service apache2 restart
 ```
@@ -56,6 +63,7 @@ sudo service apache2 restart
 # Test
 
 Go to `http://localhost/`. Press `F5` to refresh if necessary. It should show
+
 ```
 Hello World
 ```

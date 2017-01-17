@@ -19,6 +19,7 @@ On the bright side, you are using git, and that gives you the power of a [time t
 A good thing about git is that all your committed changes are never truly gone (This is not actually true, though: traceable commits (commits whose children link to a t least one reference) are always ...traceable; but orphaned commits will be gone in around 2 weeks by default, and thus, you have around 2 weeks to save your lost work), and can be traced back using `git reflog`.
 
 This is an example of what produced by `git reflog`.
+
 ```
 07f84b9 HEAD@{0}: checkout: moving from master to demo
 41b8897 HEAD@{1}: reset: moving to origin/master
@@ -38,25 +39,35 @@ c2a2f45 HEAD@{9}: rebase -i (pick): Move checkEmptyField into a separate javascr
 In the above example, you can see all the actions you have been doing to your git tree, and all the references to all the `HEAD`'s that you have been on.
 
 For example:
+
 ```
 41b8897 HEAD@{1}: reset: moving to origin/master
 ```
+
 means that you have called
+
 ```
 git reset origin/master
 ```
+
 which makes the current `working directory` points to `41b8897`. The hash `41b8897` is what would be used for a `git reset` (in case you want to reset your current branch to that point of time)
+
 ```
 `git reset` changes the current branch's address to another git commit.
 ```
+
 For example, I am currently on `demo`, and want to point `demo` from wherever to the current `origin/master`, I can do either
+
 ```
 git reset origin/master --hard
 ```
+
 or
+
 ```
 git reset 41b8897 --hard
 ```
+
 _Note: specifying `--hard` forces resetting the content of the current directory to the destination commit, not only the reference of the current branch_
 
 **Official documentation**:

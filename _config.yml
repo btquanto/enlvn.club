@@ -9,6 +9,8 @@ highlighter: rouge
 kramdown:
     input: GFM
     syntax_highlighter: rouge
+    hard_wrap: false
+    gfm_quirks: paragraph_end
 
 permalink: /:year/:month/:day/:title:output_ext
 
@@ -21,8 +23,8 @@ show_drafts: false
 disqus_identifier: "EXAMPLE"
 
 # Site Info
-title: "Jekyll Mon Cahier"
-tagline: "Just another Jekyll site"
+title: "The IT Fox"
+tagline: "Inside a developer's mind"
 url: https://theitfox.com/ # Must end with `/`
 
 author:
