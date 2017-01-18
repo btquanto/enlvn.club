@@ -4,6 +4,7 @@ title: Using Python in web development with Apache2 and mod_python
 is_recommended: false
 category: Experiment
 tags: ["python", "apache2", "mod_python"]
+comments: true
 ---
 
 **Target system**: Ubuntu 14.04 LTS

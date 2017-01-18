@@ -4,6 +4,7 @@ title: Linux cheatsheet
 is_recommended: true
 category: Linux
 tags: ["linux", "cheetsheet"]
+comments: true
 ---
 # Basics
 

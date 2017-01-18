@@ -4,6 +4,7 @@ title: Time travel with git
 is_recommended: false
 category: Git
 tags: ["git", "tutorial"]
+comments: true
 ---
 
 # Scenario:

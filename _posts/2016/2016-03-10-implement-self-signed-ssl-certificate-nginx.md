@@ -4,6 +4,7 @@ title: Implement a self-signed SSL certificate to nginx
 is_recommended: true
 category: System Admin
 tags: ["linux", "nginx", "ssl", "tutorial"]
+comments: true
 ---
 
 1. Generate `myapp.key`, and `myapp.crt`. The location is not really important, but make sure that the user that runs nginx has access to it.

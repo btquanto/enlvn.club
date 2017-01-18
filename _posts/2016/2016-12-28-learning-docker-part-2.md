@@ -3,6 +3,7 @@ layout: post
 title: Learning Docker - Part 2 - Docker cheatsheet
 category: Tutorials
 tags: ["linux", "docker", "tutorial"]
+comments: true
 ---
 
 # Config to run docker without sudo

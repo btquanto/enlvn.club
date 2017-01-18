@@ -4,6 +4,7 @@ title: Toggle touch pad in Ubuntu
 is_recommended: false
 category: Linux
 tags: ["ubuntu", "linux", "touchpad", "tutorial"]
+comments: true
 ---
 
 In short, the hot key `Fn + F9` (or `F8`, whatever) to toggle enabling touch pad (track pad) does not always work due to Linux's poor driver support (It's the manufacturer's fault, not Canonical's).

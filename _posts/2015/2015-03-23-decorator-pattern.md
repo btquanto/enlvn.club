@@ -4,6 +4,7 @@ title: "Decorator Pattern"
 is_recommended: false
 category: Design Pattern
 tags: ["design_pattern", "python", "decorator"]
+comments: true
 ---
 
 # The problem
