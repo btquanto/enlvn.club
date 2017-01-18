@@ -58,7 +58,7 @@ $ sudo docker pull btquanto/docker-jekyll
 3. Create and run a jekyll docker container
 
     ```
-$ sudo docker run -d --name jekyll \
+$ sudo docker run -u `id -u $USER` -d --name jekyll \
     -v `pwd`:/src \
     -p 4000:4000 \
     btquanto/docker-jekyll jekyll serve -H 0.0.0.0
@@ -101,7 +101,7 @@ $ sudo docker build -t my_jekyll_image .
 7. Recreate the jekyll container with the new image
 
     ```
-$ sudo docker run -d \
+$ sudo docker run -u `id -u $USER` -d \
     --name jekyll \
     -v `pwd`:/src \
     -p 4000:4000 \

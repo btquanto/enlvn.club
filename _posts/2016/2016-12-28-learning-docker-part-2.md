@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learning Docker - Part 2 - The basics
+title: Learning Docker - Part 2 - Docker cheatsheet
 category: Tutorials
 tags: ["linux", "docker", "tutorial"]
 ---
@@ -77,10 +77,22 @@ docker run -ti <image name> /bin/bash
 docker run -d <image name>
     ```
 
+    Run docker container under a different user (for security)
+
+    ```
+docker run -u `id -u <username>` <image name>
+    ```
+
+    Run docker container under current user
+
+    ```
+docker run -u $UID <image name>
+    ```
+
     Well, you can combine these together, for example:
 
     ```
-docker run -dti --name ubuntu1604 ubuntu:16.04 /bin/bash
+docker run -u $UID -dti --name ubuntu1604 ubuntu:16.04 /bin/bash
     ```
 
 4. Attach to a container:
