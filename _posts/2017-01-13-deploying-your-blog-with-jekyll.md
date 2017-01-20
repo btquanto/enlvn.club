@@ -28,20 +28,20 @@ You can either choose to install Jekyll, or use a pre-built Docker image
 1. Jekyll is a ruby gem, thus installing ruby is the pre-requisite
 
     ```
-curl -L https://get.rvm.io | bash -s stable --ruby=2.0.0
+    curl -L https://get.rvm.io | bash -s stable --ruby=2.0.0
     ```
 
 2. Now is the actuall installing Jekyll part
 
     ```
-gem install jekyll
+    gem install jekyll
     ```
 
 3. Running your site is easy
 
     ```
-cd ~/blog
-jekyll serve 
+    cd ~/blog
+    jekyll serve 
     ```
 
     Learn more about the `jekyll serve` command with `jekyll serve -h`
@@ -55,15 +55,15 @@ jekyll serve
 2. Then, just pull a pre-built docker image for jekyll. I am using [btquanto/docker-jekyll](https://hub.docker.com/r/btquanto/docker-jekyll/) here.
 
     ```
-docker pull btquanto/docker-jekyll
+    docker pull btquanto/docker-jekyll
     ```
 3. Just run your site (follow the instructions of whichever image that you use)
 
     ```
-cd ~/blog
-docker run -u `id -u $USER` -d \
-    --name jekyll \
-    -v `pwd`:/src \
-    -p 4000:4000 \
-    btquanto/docker-jekyll jekyll serve -H 0.0.0.0
+    cd ~/blog
+    docker run -u `id -u $USER` -d \
+        --name jekyll \
+        -v `pwd`:/src \
+        -p 4000:4000 \
+        btquanto/docker-jekyll jekyll serve -H 0.0.0.0
     ```

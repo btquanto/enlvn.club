@@ -18,40 +18,40 @@ Follow instructions on [Docker's website](https://www.docker.io/)
 1. Create a folder containing your project
 
     ```
-mkdir wordpress_mysql
-cd wordpress_mysql
+    mkdir wordpress_mysql
+    cd wordpress_mysql
     ```
 
 2. Create a `docker-compose.yml` file with the following content
 
     ``` yaml
-version: 2
-services:
-    mysql:
-        image: mysql:latest
-        environment:
-            MYSQL_ROOT_PASSWORD: somepassword
-    wordpress:
-        image: wordpress:latest
-        ports:
-            - 8080:80
-        depends_on:
-            - "mysql"
-        environment:
-            WORDPRESS_DB_PASSWORD: somepassword
+    version: 2
+    services:
+        mysql:
+            image: mysql:latest
+            environment:
+                MYSQL_ROOT_PASSWORD: somepassword
+        wordpress:
+            image: wordpress:latest
+            ports:
+                - 8080:80
+            depends_on:
+                - "mysql"
+            environment:
+                WORDPRESS_DB_PASSWORD: somepassword
     ```
 
 3. Initialize the service with `docker-compose`
 
     ```
-docker-compose up -d
+    docker-compose up -d
     ```
 
     It's basically done. However, since the `mysql` container takes some time to initialize, the wordpress container fails when connecting to the mysql database, you have to restart the container
 
     ```
-docker-compose down
-docker-compose up -d
+    docker-compose down
+    docker-compose up -d
     ```
 
 4. Visit your [localhost:8080](https://localhost:8080/). It works!!!

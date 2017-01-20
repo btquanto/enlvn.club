@@ -18,51 +18,51 @@ In this tutorial, I am demonstrating how easy it is to create a stack (a develop
 2. Create a project folder for the LEMP stack
 
     ```
-mkdir LEMP
-cd LEMP
+    mkdir LEMP
+    cd LEMP
     ```
 
 3. Create a `www` folder to contain PHP source code, and make a `phpinfo()` test script
 
     ```
-mkdir www
-echo "<?php phpinfo(); ?>" > ./www/index.php
+    mkdir www
+    echo "<?php phpinfo(); ?>" > ./www/index.php
     ```
 
 4. Create a folder for containing log files
 
     ```
-mkdir logs
+    mkdir logs
     ```
 
 5. Create a `./nginx/site.conf` file containing the server's configuration
 
     ``` nginx
-server {
-    listen 80;
+    server {
+        listen 80;
 
-    root /www;
+        root /www;
 
-    index index.html index.htm index.php;
+        index index.html index.htm index.php;
 
-    location / {
-        try_files $uri $uri/ /index.php?$args;
+        location / {
+            try_files $uri $uri/ /index.php?$args;
+        }
+
+        location ~ \.php$ {
+            try_files $uri =404;
+            include fastcgi_params;
+            fastcgi_pass phpfpm:9000;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        }
     }
-
-    location ~ \.php$ {
-        try_files $uri =404;
-        include fastcgi_params;
-        fastcgi_pass phpfpm:9000;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    }
-}
     ```
 
     This is pretty much a standard configuration for an nginx-phpfpm site. Except this line:
 
     ```
-fastcgi_pass phpfpm:9000;
+    fastcgi_pass phpfpm:9000;
     ```
 
     We are going to link the nginx container with the phpfpm container, thus `phpfpm` will be available in the nginx container's `hosts`
@@ -109,40 +109,40 @@ fastcgi_pass phpfpm:9000;
 7. Check your folder's structure
 
     ```
-$ tree ./
-./
-├── docker-compose.yml
-├── logs
-├── nginx
-│   └── site.conf
-└── www
-    └── index.php
+    $ tree ./
+    ./
+    ├── docker-compose.yml
+    ├── logs
+    ├── nginx
+    │   └── site.conf
+    └── www
+        └── index.php
     ```
 
 8. Run the stack
 
     ```
-docker-compose up -d
+    docker-compose up -d
     ```
 
 9. Go to [localhost](http://localhost/) and check if your `phpinfo()` script has been successfully executed
 10. Testing database connection by replacing the content of `./www/index.php` with the following
 
     ``` php
-<?php
-$servername = "mariadb";
-$username = "yii";
-$password = "abcd1234";
+    <?php
+    $servername = "mariadb";
+    $username = "yii";
+    $password = "abcd1234";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password);
+    // Create connection
+    $conn = new mysqli($servername, $username, $password);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-?>
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    echo "Connected successfully";
+    ?>
     ```
 
     There should be an error message that says something like this

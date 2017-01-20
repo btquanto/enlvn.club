@@ -15,7 +15,7 @@ comments: true
 1. Installing: `apache2` and `libapache2-mod-python`
 
     ```
-sudo apt-get install apache2 libapache2-mod-python -y
+    sudo apt-get install apache2 libapache2-mod-python -y
     ```
 
 2. Check installation complete by going to `http://localhost/`
@@ -23,7 +23,7 @@ sudo apt-get install apache2 libapache2-mod-python -y
 4. If the file in step 3 does not exist, add the following line to `/etc/apache2/apache2.conf`
 
     ```
-LoadModule python_module /usr/lib/apache2/modules/mod_python.so
+    LoadModule python_module /usr/lib/apache2/modules/mod_python.so
     ```
 
 # Adding test script

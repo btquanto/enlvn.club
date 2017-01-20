@@ -54,7 +54,7 @@ Now, all I have to do is to run that script whenever I want to do the toggle. Th
     So, I put this in the alias section of my `~/.bashrc` file (I don't use a separate `~/.bash_aliases` file, since it's not really necessary)
 
     ``` sh
-alias toggle-tp="if [ \"\`lsmod | grep -o psmouse\`\" ]; then sudo modprobe -r psmouse; else sudo modprobe psmouse; fi"
+    alias toggle-tp="if [ \"\`lsmod | grep -o psmouse\`\" ]; then sudo modprobe -r psmouse; else sudo modprobe psmouse; fi"
     ```
 
     Ok, that looks nicer. Hummm, but then I will have to open a terminal every time I want to toggle the touch pad. Not catastrophically annoying, but I want things better.
@@ -64,13 +64,13 @@ alias toggle-tp="if [ \"\`lsmod | grep -o psmouse\`\" ]; then sudo modprobe -r p
     Firstly, I install `gksu`. `modprobe` requires sudo access to work. Without a shell, `gksudo` is required.
 
     ```
-sudo apt-get install gksu -y
+    sudo apt-get install gksu -y
     ```
 
     Then, I change the alias to
 
     ```
-alias toggle-tp="if [ \"\`lsmod | grep -o psmouse\`\" ]; then gksudo 'modprobe -r psmouse'; else gksudo 'modprobe psmouse'; fi"
+    alias toggle-tp="if [ \"\`lsmod | grep -o psmouse\`\" ]; then gksudo 'modprobe -r psmouse'; else gksudo 'modprobe psmouse'; fi"
     ```
 
     After re-login, I can just press `Alt + F2`, then type `toggle-cp` to toggle. That's a bit better, but still, I just want a hot key.
@@ -80,20 +80,20 @@ alias toggle-tp="if [ \"\`lsmod | grep -o psmouse\`\" ]; then gksudo 'modprobe -
     So finally, I decide to edit the script in to use `gksudo`
 
     ``` sh
-#!/bin/bash
-if [ "`lsmod | grep -o psmouse`" ];
-then
-    gksudo 'modprobe -r psmouse';
-else
-    gksudo 'modprobe psmouse';
-fi
+    #!/bin/bash
+    if [ "`lsmod | grep -o psmouse`" ];
+    then
+        gksudo 'modprobe -r psmouse';
+    else
+        gksudo 'modprobe psmouse';
+    fi
     ```
 
     Then config a new keyboard shortcut (I'm using `Ctrl + Super + T`)
 
     ```
-Name: Toggle Keyboard
-Command: /path/to/toggle-trackpad.sh
+    Name: Toggle Keyboard
+    Command: /path/to/toggle-trackpad.sh
     ```
 
 # Result

@@ -46,67 +46,67 @@ First contact with Docker will be deploying a Jekyll page.
 1. Clone a jekyll template. I'm using [Jekyll Mon Cahier](https://github.com/btquanto/jekyll_mon_cahier) in this example. It's a pretty cool template, so make sure to check it out.
 
     ```
-$ git clone https://github.com/btquanto/jekyll_mon_cahier.git ./jekyll_site
-$ cd ./jekyll_site
+    $ git clone https://github.com/btquanto/jekyll_mon_cahier.git ./jekyll_site
+    $ cd ./jekyll_site
     ```
 
 2. I don't want to get involve in building a new jekyll image yet, so I am using [btquanto/docker-jekyll](https://hub.docker.com/r/btquanto/docker-jekyll/) from docker hub.
 
     ```
-$ sudo docker pull btquanto/docker-jekyll
+    $ sudo docker pull btquanto/docker-jekyll
     ```
 
 3. Create and run a jekyll docker container
 
     ```
-$ sudo docker run -u `id -u $USER` -d --name jekyll \
-    -v `pwd`:/src \
-    -p 4000:4000 \
-    btquanto/docker-jekyll jekyll serve -H 0.0.0.0
+    $ sudo docker run -u `id -u $USER` -d --name jekyll \
+        -v `pwd`:/src \
+        -p 4000:4000 \
+        btquanto/docker-jekyll jekyll serve -H 0.0.0.0
     ```
 
 4. Check your [localhost:4000](http://localhost:4000). In most cases, it should work. Yey!
 5. When I was using the theme [Lanyon](https://github.com/poole/lanyon/). So, let's see what's the error, by starting the container again.
 
     ```
-$ sudo docker start -a jekyll
+    $ sudo docker start -a jekyll
     ```
 
     And the error shown is that I don't have the gem `redcarpet`
 
     ```
-Dependency Error: Yikes! It looks like you don't have redcarpet or one of its dependencies installed.
+    Dependency Error: Yikes! It looks like you don't have redcarpet or one of its dependencies installed.
     ```
 
 6. Let's install `redcarpet` by upgrading the `btquanto/docker-jekyll` image
     1. Remove the failed container
 
         ```
-$ sudo docker rm jekyll
+    $ sudo docker rm jekyll
         ```
 
     2. Make a Dockerfile with the following content
 
         ```
-FROM btquanto/docker-jekyll
-MAINTAINER btquanto@gmail.com
-RUN gem install redcarpet
+    FROM btquanto/docker-jekyll
+    MAINTAINER btquanto@gmail.com
+    RUN gem install redcarpet
         ```
 
     3. Build the docker image
 
         ```
-$ sudo docker build -t my_jekyll_image .
+    $ sudo docker build -t my_jekyll_image .
         ```
 
 7. Recreate the jekyll container with the new image
 
     ```
-$ sudo docker run -u `id -u $USER` -d \
-    --name jekyll \
-    -v `pwd`:/src \
-    -p 4000:4000 \
-    my_jekyll_image jekyll serve -H 0.0.0.0
+    $ sudo docker run -u `id -u $USER` -d \
+        --name jekyll \
+        -v `pwd`:/src \
+        -p 4000:4000 \
+        my_jekyll_image jekyll serve -H 0.0.0.0
     ```
 
-8. Check [localhost:4000](http://localhost:4000). Yey!
+8. My site is not available at [localhost:4000](http://localhost:4000). Yey!
