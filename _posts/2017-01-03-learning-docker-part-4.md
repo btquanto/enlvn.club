@@ -70,32 +70,32 @@ fastcgi_pass phpfpm:9000;
 6. Create a `docker-compose.yml` file with the following content
 
     ``` yaml
-version: '2'
-services:
-  mariadb:
-    image: mariadb:5.5
-    environment:
-      - MYSQL_ROOT_PASSWORD=password123
-      - MYSQL_DATABASE=yii
-      - MYSQL_USER=yii
-      - MYSQL_PASSWORD=abcd1234
-  phpfpm:
-    image: php:5.6-fpm-alpine
-    volumes:
-      - ./www:/www
-    links:
-      - mariadb
-  nginx:
-    image: nginx:1.11.8-alpine
-    volumes:
-      - ./nginx:/etc/nginx/conf.d
-      - ./logs:/var/nginx/logs
-      - ./www:/www
-    ports:
-      - 80:80
-    links:
-      - phpfpm
-    command: /bin/sh -c "nginx -g 'daemon off;'"
+    version: '2'
+    services:
+    mariadb:
+        image: mariadb:5.5
+        environment:
+        - MYSQL_ROOT_PASSWORD=password123
+        - MYSQL_DATABASE=yii
+        - MYSQL_USER=yii
+        - MYSQL_PASSWORD=abcd1234
+    phpfpm:
+        image: php:5.6-fpm-alpine
+        volumes:
+        - ./www:/www
+        links:
+        - mariadb
+    nginx:
+        image: nginx:1.11.8-alpine
+        volumes:
+        - ./nginx:/etc/nginx/conf.d
+        - ./logs:/var/nginx/logs
+        - ./www:/www
+        ports:
+        - 80:80
+        links:
+        - phpfpm
+        command: /bin/sh -c "nginx -g 'daemon off;'"
     ```
 
     Things here are pretty straightforward:
