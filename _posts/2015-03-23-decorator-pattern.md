@@ -3,7 +3,7 @@ layout: post
 title: "Decorator Pattern"
 is_recommended: false
 category: Design Pattern
-tags: ["design_pattern", "python", "decorator"]
+tags: ["design pattern", "python", "decorator"]
 comments: true
 ---
 
