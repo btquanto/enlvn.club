@@ -6,6 +6,11 @@ category: Linux
 tags: ["linux", "cheetsheet"]
 comments: true
 ---
+
+This is more of a Ubuntu cheatsheet than a Linux one. However, many shortcuts and commands are usable on other Linux systems.
+
+Most of these are just example usages. You should check each command's manual for more options (by using the `man` command).
+
 # Basics
 
 * Read the manual of any (supported) command
@@ -42,6 +47,20 @@ comments: true
     ls -l # List files with more information, like mod, size, owner
     ls -a # List all files, including hidden files
     ```
+
+# Bash shortcuts
+
+* Stop current command: `<Ctrl> + C`
+* Sleep program: `<Ctrl> + Z`
+* Go to start of line: `<Ctrl> + A`
+* Go to end of line: `<Ctrl> + E`
+* Cut from start of line: `<Ctrl> + U`
+* Cut to end of line: `<Ctrl> + V`
+* Select text: hold `<Shift>`, left click then drag your mouse
+* Copy selection: `<Ctrl> + <Shift> + C`
+* Paste selection: `<Ctrl> + <Shift> + V`
+* Search for a previously used command: `<Ctrl> + R`
+* Repeat last command: `!!`
 
 # Users and permissions
 
@@ -137,6 +156,13 @@ comments: true
     ```
     export VARIABLE_NAME=<value> # There should be no spaces before and after `=`
     ```
+
+* Some useful environment variables:
+    * `$USER`: Current user's name, same as output of `whoami`
+    * `$UID`: Current user's id, same as output of `id -u $USER`
+    * `$PWD`: Path of the current working directory, same as output of `pwd`
+    * `$HOME`: Current user's home directory
+    * `$PATH`: A set of directories where executable programs are located. These programs can be called directly without specifying the full path.
 
 # Basic programming
 
@@ -279,6 +305,30 @@ comments: true
 
 # System
 
+* Show system and kernel
+
+    ```
+    uname -a
+    ```
+
+* Show system date
+
+    ```
+    date
+    ```
+
+* Show uptime
+
+    ```
+    uptime
+    ```
+
+* Show current free and used memory in the system
+
+    ```
+    free -m
+    ```
+
 * Set the CPU affinity of a process
 
     ```
@@ -350,7 +400,7 @@ comments: true
 
 # Tips and tricks
 
-* Using `tree` to visualize folder's structure
+* Use `tree` to visualize folder's structure
 
     ```
     tree <path>
@@ -375,10 +425,28 @@ comments: true
     sudo apt-get install tree -y
     ```
 
-* Watch your memory usage (RAM and swap)
+* Use `watch` to execute a program periodically, then show the out put on the screen.
+
+    ```
+    watch -n <seconds> <command>
+    ```
+
+    For exampple: watch your memory usage every 5 seconds
 
     ```
     watch -n 5 free -m
+    ```
+
+* Use `htop` to monitor your system resource usage
+    
+    ```
+    htop
+    ```
+
+    `htop` must first be installed
+
+    ```
+    sudo apt-get install htop
     ```
 
 * Use `tmux` to multiplex your terminal
