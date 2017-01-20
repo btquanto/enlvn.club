@@ -15,16 +15,16 @@ kramdown:
 permalink: /:year/:month/:day/:title:output_ext
 
 paginate: 5
-recent_posts_limit: 10
+recent_posts_limit: 5
 
 show_drafts: false
 
 # Disqus
-disqus_identifier: "EXAMPLE"
+disqus_identifier: theitfox
 
 # Site Info
-title: "The IT Fox"
-tagline: "Inside a developer's mind"
+title: The IT Fox
+tagline: Inside a developer's mind
 url: https://theitfox.com/ # Must end with `/`
 
 author:
