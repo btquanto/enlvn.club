@@ -1,10 +1,8 @@
 ---
-layout: post
 title: Learning Docker - Part 1 - Getting started
 is_recommended: true
 category: Tutorials
 tags: ["linux", "docker", "tutorial"]
-comments: true
 ---
 
 # The problems I had

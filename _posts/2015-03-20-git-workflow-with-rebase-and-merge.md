@@ -1,10 +1,8 @@
 ---
-layout: post
 title: Git workflow with rebase and merge
 is_recommended: true
 category: Git
 tags: ["git", "tutorial"]
-comments: true
 ---
 
 **Example branches**

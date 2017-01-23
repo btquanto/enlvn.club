@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Learning Docker - Part 3 - Using docker-compose
 category: Tutorials
 tags: ["linux", "docker", "tutorial"]
-comments: true
 ---
 
 A problem with creating docker containers is that the docker run command can get a little bit complicated, especially when there are even more configurations. Similarly, when your application would need multiple different docker containers in order to run, then running containers individually and linking them together can be a mess to newbies.

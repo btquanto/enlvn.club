@@ -1,9 +1,7 @@
 ---
-layout: post
 title: Learning Docker - Part 4 - Creating a LEMP stack using docker
 category: Tutorials
 tags: ["linux", "docker", "tutorial"]
-comments: true
 ---
 
 In this tutorial, I am demonstrating how easy it is to create a stack (a development/production environment) of your own using `docker-compose`. I am going to create a LEMP stack (Linux - nginx - MariaDB - PHP 5.6). I'm not eager to write my own image yet because, well, there are already images available for nginx, MariaDB, and PHP 5.6. What I want is to link them together to create my own service.

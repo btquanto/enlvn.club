@@ -4,7 +4,7 @@ category: Programming Techniques
 tags: ["programming", "java", "reactive programming"]
 descriptions: This blog post is about my experience with reactive programming paradigm
 keywords: Reactive programming, ReactiveX, ReactAndroid, ReactJava
-comments: true
+is_recommended: true
 ---
 
 I didn't start following reactive programming on purpose. I started with using [ReactiveX](https://reactivex.io/) on Android as part of the [clean architecture, the reactive approach](http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/), and eventually I had some ideas about reactive programming.

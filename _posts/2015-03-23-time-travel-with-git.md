@@ -1,10 +1,8 @@
 ---
-layout: post
 title: Time travel with git
-is_recommended: false
+is_recommended: true
 category: Git
 tags: ["git", "tutorial"]
-comments: true
 ---
 
 # Scenario:

@@ -1,10 +1,8 @@
 ---
-layout: post
 title: Linux cheatsheet
 is_recommended: true
 category: Linux
 tags: ["linux", "cheetsheet"]
-comments: true
 ---
 
 This is more of a Ubuntu cheatsheet than a Linux one. However, many shortcuts and commands are usable on other Linux systems.
