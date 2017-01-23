@@ -25,7 +25,7 @@ When a change happens, the information regarding that change is generated, then 
 
 **Example:**
 
-The following piece of code is an example of reactive programming that calculates `result = x + y` written in HTML, javaScript, and jQuery.
+The following piece of code is an example of reactive programming that calculates `result = x + y` written in HTML, javaScript, and jQuery. You can find [the running example here](/examples/reactive-programming-example-1.html)
 
 ``` html
 <p>x = <input name="x" value="0"/></p>

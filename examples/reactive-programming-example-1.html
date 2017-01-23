@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Example 1 - Reactive Programming</title>
+        <script src="/public/mon-cahier/js/jquery.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <p>x = <input name="x" value="0"/></p>
+        <p>y = <input name="y" value="0"/></p>
+        <p>x + y = <span id="result">0</span></p>
+        <script>
+            jQuery(function($) {
+                var observer = {
+                    $x : $("input[name=x]"),
+                    $y : $("input[name=y]"),
+                    $result : $("span#result"),
+                    update : function() {
+                        // Get the int values of x and y.
+                        var x = parseInt(this.$x.val());
+                        var y = parseInt(this.$y.val());
+                        this.$result.html(x+y);
+                    }
+                };
+                // Propagate the input events to observer.update() function
+                observer.$x.on("input", () => observer.update());
+                observer.$y.on("input", () => observer.update());             
+            });
+        </script>
+    </body>
+</html>
