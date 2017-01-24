@@ -1,6 +1,5 @@
 ---
 title: Implement a self-signed SSL certificate to nginx
-is_recommended: true
 category: System Admin
 tags: ["linux", "nginx", "ssl", "tutorial"]
 ---
