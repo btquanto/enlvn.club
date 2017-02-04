@@ -70,30 +70,33 @@ In this tutorial, I am demonstrating how easy it is to create a stack (a develop
     ``` yaml
     version: '2'
     services:
-    mariadb:
-        image: mariadb:5.5
-        environment:
-        - MYSQL_ROOT_PASSWORD=password123
-        - MYSQL_DATABASE=yii
-        - MYSQL_USER=yii
-        - MYSQL_PASSWORD=abcd1234
-    phpfpm:
-        image: php:5.6-fpm-alpine
-        volumes:
-        - ./www:/www
-        links:
-        - mariadb
-    nginx:
-        image: nginx:1.11.8-alpine
-        volumes:
-        - ./nginx:/etc/nginx/conf.d
-        - ./logs:/var/nginx/logs
-        - ./www:/www
-        ports:
-        - 80:80
-        links:
-        - phpfpm
-        command: /bin/sh -c "nginx -g 'daemon off;'"
+        mariadb:
+            image: mariadb:5.5
+            user: $UID
+            environment:
+            - MYSQL_ROOT_PASSWORD=password123
+            - MYSQL_DATABASE=yii
+            - MYSQL_USER=yii
+            - MYSQL_PASSWORD=abcd1234
+        phpfpm:
+            image: php:5.6-fpm-alpine
+            user: $UID
+            volumes:
+            - ./www:/www
+            links:
+            - mariadb
+        nginx:
+            image: nginx:1.11.8-alpine
+            user: $UID
+            volumes:
+            - ./nginx:/etc/nginx/conf.d
+            - ./logs:/var/nginx/logs
+            - ./www:/www
+            ports:
+            - 80:80
+            links:
+            - phpfpm
+            command: /bin/sh -c "nginx -g 'daemon off;'"
     ```
 
     Things here are pretty straightforward:
@@ -120,6 +123,7 @@ In this tutorial, I am demonstrating how easy it is to create a stack (a develop
 8. Run the stack
 
     ```
+    export UID
     docker-compose up -d
     ```
 

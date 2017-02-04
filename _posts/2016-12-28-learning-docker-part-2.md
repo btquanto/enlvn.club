@@ -17,7 +17,7 @@ By default, docker needs to be run with root privilege, but we don't want that f
 2. Add the user you want to run docker without sudo to group docker
 
     ```
-    sudo groupadd -a ${USER} docker
+    sudo usermod -aG docker ${USER}
     ```
 
 3. Restart docker daemon:
@@ -31,6 +31,33 @@ By default, docker needs to be run with root privilege, but we don't want that f
     ```
     newgrp docker
     ```
+
+**Note:** _This allows running docker without using the `sudo` command. However, files created by docker by default are still owned by root. To truly avoid giving root privilege to docker, specify option `-u <user id>` when running `docker run`. For example:_
+
+```
+docker run -u `id -u $USER` <image>
+```
+
+_Or_
+
+```
+docker run -u $UID <image>
+```
+
+_If you are using `docker-compose`, then you should specify the option `user` in your `docker-compose.yml` file. For example:_
+
+``` yml
+version: '3'
+services:
+  jekyll:
+    user: $UID
+    image: btquanto/docker-jekyll
+    ports:
+      - 4000:4000
+    volumes:
+      - ./:/src
+    command: jekyll serve -H 0.0.0.0 --draft
+```
 
 # Basic docker commands
 
@@ -112,7 +139,7 @@ By default, docker needs to be run with root privilege, but we don't want that f
     docker start <container id/ name>
     ```
 
-Start and attach to a container
+    Start and attach to a container
 
     ```
     docker start -a <container id/ name>

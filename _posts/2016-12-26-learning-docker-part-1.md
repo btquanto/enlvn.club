@@ -57,7 +57,7 @@ First contact with Docker will be deploying a Jekyll page.
 3. Create and run a jekyll docker container
 
     ```
-    $ sudo docker run -u `id -u $USER` -d --name jekyll \
+    $ sudo docker run -u $UID -d --name jekyll \
         -v `pwd`:/src \
         -p 4000:4000 \
         btquanto/docker-jekyll jekyll serve -H 0.0.0.0
@@ -80,21 +80,21 @@ First contact with Docker will be deploying a Jekyll page.
     1. Remove the failed container
 
         ```
-    $ sudo docker rm jekyll
+        $ sudo docker rm jekyll
         ```
 
     2. Make a Dockerfile with the following content
 
         ```
-    FROM btquanto/docker-jekyll
-    MAINTAINER btquanto@gmail.com
-    RUN gem install redcarpet
+        FROM btquanto/docker-jekyll
+        MAINTAINER btquanto@gmail.com
+        RUN gem install redcarpet
         ```
 
     3. Build the docker image
 
         ```
-    $ sudo docker build -t my_jekyll_image .
+        $ sudo docker build -t my_jekyll_image .
         ```
 
 7. Recreate the jekyll container with the new image

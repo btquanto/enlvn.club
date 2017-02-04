@@ -59,7 +59,7 @@ You can either choose to install Jekyll, or use a pre-built Docker image
 
     ```
     cd ~/blog
-    docker run -u `id -u $USER` -d \
+    docker run -u $UID -d \
         --name jekyll \
         -v `pwd`:/src \
         -p 4000:4000 \
