@@ -309,6 +309,12 @@ Most of these are just example usages. You should check each command's manual fo
     uname -a
     ```
 
+* Check system disk space usage
+
+    ```
+    df -h
+    ```
+
 * Show system date
 
     ```
@@ -436,7 +442,7 @@ Most of these are just example usages. You should check each command's manual fo
     ```
 
 * Use `htop` to monitor your system resource usage
-    
+
     ```
     htop
     ```
