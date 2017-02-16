@@ -481,3 +481,9 @@ Most of these are just example usages. You should check each command's manual fo
     fi
     fi
     ```
+
+* Add the following command as keyboard shortcut (Fox example, `ScrollLock`) to toggle fullscreen mode of the currently focused window
+
+    ```
+    wmctrl -r ":ACTIVE:" -b toggle,fullscreen
+    ```
