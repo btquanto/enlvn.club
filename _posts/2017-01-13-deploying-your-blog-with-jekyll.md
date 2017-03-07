@@ -185,3 +185,4 @@ You can either choose to install Jekyll, or use a pre-built Docker image
 
 That's pretty much done. Now, everytime you want your server to fetch new blog posts from github and regenerate your blog, just call `udpate_blog`.
 
+# Auto generate your blog when pushing to github
