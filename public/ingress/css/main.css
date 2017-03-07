@@ -1,0 +1,145 @@
+#page {
+    max-width: 1024px;
+    background: none;
+}
+
+body.custom-background {
+    background-image: url("\/public\/ingress\/images\/background.jpg");
+    background-position: left top;
+    background-size: auto;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    color: #d1d0d2;;
+}
+
+h1.site-title, h1.site-title a {
+    color: #d1d0d2;
+}
+
+a {
+    text-decoration: none;
+    color: #d1d0d2;
+}
+#masthead {
+    border-bottom: 1px solid #006d5f;
+}
+
+.site-intro {
+    border-bottom: 3px double #006d5f;
+}
+
+.main-navigation a {
+    color: #006d5f;
+}
+
+.main-navigation li.active a, .main-navigation a:hover {
+    color: #4df8f8;
+}
+article.hentry, #secondary .widget {
+    background-color: #101f22;
+    -moz-box-shadow: inset 0 0 5px #0e2430;
+    -webkit-box-shadow: inset 0 0 5px #0e2430;
+    box-shadow: inset 0 0 5px #0e2430;
+    border: 1px solid #4d94aa;
+    border-radius: 0px;
+}
+
+article.hentry .entry-header, #secondary .widget-title {
+    background-color: #214952;
+    box-shadow: inset 0 0 10px #00797b;
+    border: 1px solid #00f3ff;
+    padding: 5px;
+    color: #FFFFFF;
+    font-size: 23px;
+    text-shadow: 0px 0px 1px #FFFFFF;
+    text-align: center;
+    margin: 0;
+}
+
+#secondary ul li {
+    padding: 0.25em 0.25em 0.25em 1.25em;
+}
+
+article.hentry {
+
+}
+
+article.hentry .entry-header {
+
+}
+
+article.hentry .entry-content {
+    padding: 1em;
+}
+
+pre {
+    background-color: #062d35;
+    border: 1px solid #00797b;
+}
+
+footer.entry-meta {
+    border-top: 1px solid #4d94aa;
+}
+div.entry-content a,
+div.page a {
+    text-decoration: underline;
+}
+
+div.entry-content img,
+div.page img {
+    max-width: 100%;
+}
+
+p {
+    margin-bottom: 0.5em;
+}
+
+div.highlighter-rouge {
+    margin: 5px 0;
+}
+
+code.highlighter-rouge {
+    padding: 1px 8px;
+    color: #d01040;
+    background: #f9f2f4;
+    border: 1px groove #ffbece;
+}
+
+.page-navigation {
+    font-size: 14px;
+    display: block;
+    width: auto;
+    overflow: hidden;
+}
+
+.page-navigation a {
+    display: block;
+    width: 50%;
+    float: left;
+    margin: 1em 0;
+}
+
+.page-navigation .prev {
+    text-align: left;
+    float: left;
+}
+
+.page-navigation .next {
+    text-align: right;
+    float: right;
+}
+
+blockquote {
+    text-align: justify;
+}
+
+.technical blockquote {
+    margin: 0 1.5em;
+    font-family: "Monospace", "Consolas", "Bodohi", "Times New Roman";
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+h1.entry-title a, h1, h2, h3, h4, h5, h6 {
+    color: #ffbb00;
+}

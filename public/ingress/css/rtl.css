@@ -1,0 +1,182 @@
+/*
+Theme Name: mon-cahier
+
+Description: Adds support for language written in a Right To Left (RTL) direction is easy -
+it's just a matter of overwriting all the horizontal positioning attributes
+of your CSS stylesheet in a separate stylesheet file named rtl.css.
+
+http://codex.wordpress.org/Right_to_Left_Language_Support
+
+*/
+
+body {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+
+
+/* =Global
+----------------------------------------------- */
+body,
+button,
+input,
+select,
+textarea {
+	font-family: verdana, helvetica, sans-serif;
+}
+
+
+/* Headings 
+-------------------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+	font-family: sans-serif;
+}
+ul, ol {
+	margin: 0 3em 1.5em 0;
+}
+ul ul, ol ol, ul ol, ol ul {
+	margin-right: 1.5em;
+}
+dfn, cite, em, i {
+	font-style: normal;
+}
+blockquote {
+	font-family: sans-serif;
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+
+/* Social Media icons
+----------------------- */
+.social-media {
+	top:-10px; left:0px;
+}
+.social-media li {
+	float:left;
+}
+
+/* Header
+---------------------------------*/
+h2.site-description {
+	font-style:normal;
+}
+
+/* Top Menu
+----------------------------------------------- */
+.main-navigation {	
+	font-family: sans-serif;
+	text-align:right;
+}
+.main-navigation li {
+	float:right;
+}
+.main-navigation ul ul {
+	float: right;
+	left: auto;
+	right: 0;
+}
+.main-navigation ul ul ul {
+	left:auto;
+	right: 100%;
+}
+
+/* Layout 
+--------------------------------------*/
+.site-content {
+	float: right;
+}
+#secondary {
+	float: left;
+}
+
+/*  Sidebar 
+------------------------------------*/
+#secondary ul li {
+	padding:4px 20px 4px 0;
+}
+#secondary ul ul li {
+	padding-right:15px;
+}
+#secondary select {
+	margin-right:20px;
+}
+#secondary .tagcloud {
+	margin-right:20px;
+}
+#secondary #calendar_wrap {/* if calendar widget is added to sidebar, let's push it a bit*/
+	margin-right:38px;	
+}
+
+/* Main content
+----------------------------------------------- */
+.edit-link { 
+	left:auto;	
+	right:-90px;
+}
+
+
+/* Entry meta 
+----------------------------------------*/
+p.postedon {
+	font-style:normal;
+}
+
+/* Footer 
+-------------------------------------*/
+.site-info { /*copyright info */
+	text-align:left;	
+}
+
+/* Navigation  
+----------------------------------------------- */
+#content .nav-previous {
+	float: right;
+	text-align:right;
+}
+#content .nav-next {
+	float: left;
+	text-align: left;
+}
+
+/* Comments
+----------------------------------------------- */
+#comments {
+	clear:right;
+}
+.avatar {
+	float: right;
+	padding: 0 10px 10px 20px;
+}		
+
+ol.commentlist ul.children {
+	margin:10px 25px 0 10px;
+}
+ol.commentlist li blockquote p {
+	font-size: 20px;
+	font-size: 2rem;
+}
+
+/* Forms and buttons 
+--------------------------------*/
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	font-family: sans-serif;
+}
+
+input[type=text] {
+	margin-right:5px;
+}
+textarea {
+	padding-right: 3px;
+}
+
+#prev {
+	text-align: right;
+	margin: 10px 0 0 0;
+}
+#next {
+	text-align: left;
+	margin: 10px 0 0 0;
+}
