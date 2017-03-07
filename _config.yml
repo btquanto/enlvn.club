@@ -23,9 +23,9 @@ show_drafts: false
 disqus_identifier: theitfox
 
 # Site Info
-title: The IT Fox
-tagline: Inside a developer's mind
-url: https://theitfox.com/ # Must end with `/`
+title: EnlVn Club
+tagline: Website of the Enlightened agents in Vietnam
+url: http://enlvn.club/ # Must end with `/`
 
 author:
   name: Quan To
@@ -41,7 +41,7 @@ defaults:
       layout: post
       is_recommended: false
       comments: true
-      style: technical # Styles can be casual or technical
+      style: casual # Styles can be casual or technical
   -
     scope:
       path: ""
