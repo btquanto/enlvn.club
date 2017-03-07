@@ -65,12 +65,8 @@ article.hentry .entry-header, #secondary .widget-title {
     padding: 0.25em 0.25em 0.25em 1.25em;
 }
 
-article.hentry {
-
-}
-
 article.hentry .entry-header {
-
+    padding: 0.25em 0.25em 0.25em 1.25em;
 }
 
 article.hentry .entry-content {
@@ -81,7 +77,9 @@ pre {
     background-color: #062d35;
     border: 1px solid #00797b;
 }
-
+p.postedon {
+    text-align: left;
+}
 footer.entry-meta {
     border-top: 1px solid #4d94aa;
 }
