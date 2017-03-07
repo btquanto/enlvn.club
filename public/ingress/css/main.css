@@ -12,8 +12,18 @@ body.custom-background {
     color: #d1d0d2;;
 }
 
+#masthead img.site-logo {
+    width: 150px;
+    display: inline-block;
+    border-bottom: none;
+    vertical-align: middle;
+}
+
 h1.site-title, h1.site-title a {
     color: #d1d0d2;
+}
+h1.site-title a {
+    vertical-align: middle;
 }
 
 a {
