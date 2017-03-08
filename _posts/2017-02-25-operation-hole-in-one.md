@@ -1,5 +1,5 @@
 ---
-title: Shard fight - Shard 22 - Operation "Hole In One"
+title: Operation "Hole In One"
 is_recommended: true
 category: Anomaly
 tags: ["anomaly", "shard22", "phase 2", "ingress", "fateofthe13", "magnus", "enlightened", "enlvn", "enlmy"]
