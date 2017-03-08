@@ -41,7 +41,7 @@ defaults:
       layout: post
       is_recommended: false
       comments: true
-      style: casual # Styles can be casual or technical
+      style: technical # Styles can be casual or technical
   -
     scope:
       path: ""
@@ -49,7 +49,7 @@ defaults:
     values:
       layout: page
       comments: false
-      style: casual
+      style: technical
 
 # Programming variables - do not modify
 array: []
