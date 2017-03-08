@@ -57,3 +57,4 @@ Here is the list of the ground agents in Vietnam. Apologies to Malaysian agents,
 ![](/public/images/operation-hole-in-one/photo6194890399609366455.jpg)
 ![](/public/images/operation-hole-in-one/photo6194890399609366453.jpg)
 ![](/public/images/operation-hole-in-one/photo6194890399609366454.jpg)
+![](/public/images/operation-hole-in-one/photo8.jpg)
