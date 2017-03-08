@@ -73,15 +73,19 @@ article.hentry .entry-header, #secondary .widget-title {
 }
 
 #secondary ul li {
-    padding: 0.25em 0.25em 0.25em 1.25em;
+    padding: 0.25em 1.25em 0.25em 1.25em;
 }
 
 article.hentry .entry-header {
-    padding: 0.25em 0.25em 0.25em 1.25em;
+    padding: 0.5em 1em;
 }
 
 article.hentry .entry-content {
     padding: 1em;
+}
+
+footer.entry-meta > p {
+    padding: 0.5em 1em;
 }
 
 pre {
